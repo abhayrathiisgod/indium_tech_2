@@ -26,6 +26,9 @@ class Banner_Images(models.Model):
     Updated_at = models.DateTimeField(auto_now=True)
     Image = models.ImageField(upload_to=get_upload_path)
 
+    def __str__(self) -> str:
+        return self.Banner
+
 
 class ContactForm(models.Model):
     Name = models.CharField(max_length=255)
@@ -36,23 +39,26 @@ class ContactForm(models.Model):
     Created_at = models.DateTimeField(auto_now_add=True)
     Updated_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self) -> str:
+        return self.Name
+
 
 class ContactInfo(models.Model):
     Email = models.EmailField(max_length=255)
     Phone = models.CharField(max_length=12)
-    Address = models.TextField()
+    Address = models.CharField(max_length=255)
     Latitude_Logitude = models.CharField(
         max_length=50, help_text="Right click on the google maps to get latitude and longitude")
-    Facebook_link = models.CharField(
-        max_length=255, default="www.facebook.com")
-    Instagram_link = models.CharField(
-        max_length=255, default="www.instagram.com")
-    X_link = models.CharField(max_length=255, default="www.twitter.com")
-    Youtube_link = models.CharField(max_length=255, default="www.youtube.com")
-    Linkedin_link = models.CharField(
-        max_length=255, default="www.linkedin.com")
+    Facebook_link = models.URLField(default="www.facebook.com")
+    Instagram_link = models.URLField(default="www.instagram.com")
+    X_link = models.URLField(default="www.twitter.com")
+    Youtube_link = models.URLField(default="www.youtube.com")
+    Linkedin_link = models.URLField(default="www.linkedin.com")
     Created_at = models.DateTimeField(auto_now_add=True)
     Updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return self.Email
 
 
 class PageContent(models.Model):
@@ -70,4 +76,4 @@ class PageContent(models.Model):
     Updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.Page_Title
+        return self.Page_Type

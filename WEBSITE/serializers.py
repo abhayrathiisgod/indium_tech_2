@@ -11,7 +11,8 @@ class ContactFormSerializer(serializers.ModelSerializer):
 class ContactInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContactInfo
-        fields = ['Email', 'Phone', 'Address']
+        fields = ['Email', 'Phone', 'Address', 'Latitude_Logitude', 'Facebook_link',
+                  'Instagram_link', 'X_link', 'Youtube_link', 'Linkedin_link']
 
 
 class PageContentSerializer(serializers.ModelSerializer):

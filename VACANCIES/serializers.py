@@ -5,7 +5,7 @@ from .models import Jobs, Candidates
 class JobsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Jobs
-        fields = ['Id', 'Title', 'Job_name',
+        fields = ['Id', 'Title', 'Job_Type',
                   'is_published', 'Open_date', 'Close_date']
 
 

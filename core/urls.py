@@ -25,9 +25,19 @@ admin.site.site_title = 'Techcolab Admin'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('PRODUCTS_SERVICES.urls')),
-    path('api/', include('VACANCIES.urls')),
-    path('api/', include('WEBSITE.urls')),
+    path('', include('PRODUCTS_SERVICES.urls')),
+    path('', include('VACANCIES.urls')),
+    path('', include('WEBSITE.urls')),
 ]
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path("ckeditor5/", include('django_ckeditor_5.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
