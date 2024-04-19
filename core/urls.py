@@ -17,6 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib import admin
+
+admin.site.site_header = 'Techcolab SuperAdmin'
+admin.site.index_title = 'Techcolab'
+admin.site.site_title = 'Techcolab Admin'
 
 urlpatterns = [
     path('admin/', admin.site.urls),

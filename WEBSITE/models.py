@@ -41,6 +41,17 @@ class ContactInfo(models.Model):
     Email = models.EmailField(max_length=255)
     Phone = models.CharField(max_length=12)
     Address = models.TextField()
+    Latitude_Logitude = models.CharField(
+        max_length=50, help_text="Right click on the google maps to get latitude and longitude")
+    Facebook_link = models.CharField(
+        max_length=255, default="www.facebook.com")
+    Instagram_link = models.CharField(
+        max_length=255, default="www.instagram.com")
+    X_link = models.CharField(max_length=255, default="www.twitter.com")
+    Youtube_link = models.CharField(max_length=255, default="www.youtube.com")
+    Linkedin_link = models.CharField(
+        max_length=255, default="www.linkedin.com")
+    Created_at = models.DateTimeField(auto_now_add=True)
     Updated_at = models.DateTimeField(auto_now=True)
 
 
